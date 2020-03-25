@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Upload{% endblock %}
+
+{% block main %}
+<div id="loading"><img src="../static/gear.gif" alt="" />Loading!</div>
+
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+
+          <h1>Upload an image</h1>
+          <hr>
+
+          <form action="/upload-image" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+              <label>Select image</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name = 'image' id="inputGroupFile02" oninput="filesize(this);">
+                <label class="custom-file-label" for="inputGroupFile02">Select image...</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" value="Submit" onclick="loading();">Upload</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+
+  function filesize(elem){
+    document.cookie = `filesize=${elem.files[0].size}`
+  }
+
+</script>
+
+<script>
+    $('#inputGroupFile02').on('change',function(){
+        //get the file name
+        var fileName = $(this).val();
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
+    })
+</script>
+
+<script>// <![CDATA[
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();
+        }
+</script>
+{% endblock %}

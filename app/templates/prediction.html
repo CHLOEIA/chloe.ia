@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Votre image : </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img src= "{{url_for('static', filename=filename)}}" class='rounded mx-auto d-block'>
+    </div>
+  </div>
+</div>
+{%endblock%}

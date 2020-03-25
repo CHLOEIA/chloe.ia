@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CHLOE.IA</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href = "{{ url_for('static', filename='css/freelancer.css') }}">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">CHLOE.IA</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#masthead">Détecteur</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Comment ça marche ?</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+<div id="loading" style="display: none;"><img src="../static/load.gif" alt="" /><a class = "load"> Calcul en cours!</a> </div>
+<div id="content">
+  <section class="masthead text-white text-center" id ="masthead">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">Commencer la détection</h1>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <div id="loading" style="display: none;"><img src="../static/load.gif" alt="" /><a class = "load"> Calcul en cours!</a> </div>
+
+        <div id="content">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+
+                <form action="/upload-image" method="POST" enctype="multipart/form-data">
+
+                  <div class="form-group">
+                    <label>Choisissez votre image</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" name = 'image' id="inputGroupFile02" oninput="filesize(this);" data-buttonText="Parcourir">
+                      <label class="custom-file-label" for="inputGroupFile02"> </label>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary" value="Submit" onclick="loading();">Go !</button>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section class="page-section text-white mb-0" id="about">
+    <div class="container">
+
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">Comment ça marche ?</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+        <div class="col-lg-4 ml-auto">
+          <p class="lead">Plusieurs modèles d'aprentissage automatiques permettent une reconnaissance d'image ! Nous avons choisi de partir du célèbre modèle VGG 16 !</p>
+        </div>
+        <div class="col-lg-4 mr-auto">
+          <p class="lead">Ce modèle, entraîné sur des images d'une autre base de données, a ensuite été "finetuned" en l'entraînant sur des images d'insectes. Pour plus d'informations, voir le rapport.</p>
+        </div>
+      </div>
+
+      <!-- About Section Button -->
+      <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-light" href="rapport.pdf">
+          <i class="fas fa-download mr-2"></i>
+          Le rapport !
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <!-- Footer Location -->
+        <div class="col-lg-12 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Développé par</h4>
+          <p class="lead mb-0">IMBE
+            <br>& Centrale Marseille</p>
+        </div>
+
+
+      </div>
+    </div>
+  </footer>
+</div>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap-filestyle.min.js') }}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/freelancer.min.js') }}"></script>
+
+  <script>
+
+    function filesize(elem){
+      document.cookie = `filesize=${elem.files[0].size}`
+    }
+
+  </script>
+
+  <script>
+      $('#inputGroupFile02').on('change',function(){
+          //get the file name
+          var fileName = $(this).val();
+          //replace the "Choose a file" label
+          $(this).next('.custom-file-label').html(fileName);
+      })
+  </script>
+
+  <script>// <![CDATA[
+          function loading(){
+              $("#loading").show();
+              $("#content").hide();
+          }
+  </script>
+
+</body>
+
+</html>
